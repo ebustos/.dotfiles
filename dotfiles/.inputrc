@@ -1,0 +1,41 @@
+$include /etc/inputrc
+
+# no shift needed; less typing = good
+set completion-ignore-case on
+
+# use tab-completion also inside tildes
+set expand-tilde on
+
+# do not bell on tab-completion
+set bell-style none
+
+# append a '/' to show a dir is a dir
+set mark-directories on
+set mark-symlinked-directories on
+
+# use ls -F style highlights for completion
+set visible-stats on
+
+# show all partial matches on the first tab
+set show-all-if-ambiguous on
+
+# TAB by itself cycles through options
+# "\t": menu-complete
+# ESC-i cycles through options
+"\e-i": menu-complete
+
+# alternate mappings for "page up" and "page down" to search the history
+# "\e[5~": history-search-backward
+# "\e[6~": history-search-forward
+
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving in the TTY
+"\eO5C": forward-word
+"\eO5D": backward-word
+
+#            Two silly macros
+
+#            Insert double quotes & set cursor between them
+#            "\C-x\"": "\"\"\C-b"
+
+#            Insert single quotes & set cursor between them
+#            "\C-x'": "''\C-b"

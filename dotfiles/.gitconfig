@@ -1,0 +1,47 @@
+[user]
+	name = Emilio Bustos
+	email = emilionicolas@gmail.com
+[color]
+	diff = auto
+        branch = auto
+	grep = auto
+	interactive = auto
+	showbranch = auto
+	status = auto
+	ui = auto
+
+[color "status"]
+	changed = yellow
+
+[alias]
+        up = pull origin
+        st = status
+        di = diff
+        dw = diff --color-words
+        co = checkout
+        ci = commit
+        br = branch
+        bra = branch -a
+        sta = stash
+        ff = merge --ff-only
+        # show difference between the HEAD and the index
+        staged = diff --cached
+        # show difference between working tree and the index
+        unstaged = diff
+        unstage = reset HEAD --
+        unadd = reset HEAD --
+        # show staged and unstaged changes (what would be committed with "git commit -a")
+        both = diff HEAD
+        rm = rm --cache
+        amend = commit --amend
+        squash = rebase --interactive
+        aa = add -A
+        ps = push
+        pl = pull
+	clog = log --date=short --pretty=format:\"%Cred%ad %Cblue%h %Cgreen%an %Creset%s%C(yellow)%d\"
+	slog = log --date=short --pretty=format:\"%C(124)%ad %C(24)%h %C(34)%an %C(252)%s%C(178)%d\"
+	llog = log --date=short --format=\"%C(94)--------------------------------------------------------------------------------%n%C(24)%h %C(124)%ad %C(34)%an %C(22)<%ae>%C(130)%d%n%C(178)%s%+b\"
+[merge]
+	conflictstyle = diff3
+[push]
+	default = simple
