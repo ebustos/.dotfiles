@@ -2,7 +2,7 @@
 DIR=dotfiles
 cd `dirname $0`/$DIR
 for i in `find . -type f`; do
-	j="${i##./$DIR/}"
+	j="${i##./}"
 	d=`dirname "$j"` 
 	b=`basename "$j"`
         mkdir -p "$HOME/$d" 2> /dev/null
