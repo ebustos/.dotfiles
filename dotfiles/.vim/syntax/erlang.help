@@ -1,0 +1,13 @@
+ERLANG						*erlang.vim* *erlang-syntax*
+
+The erlang highlighting supports Erlang (ERicsson LANGuage).
+Erlang is case sensitive and default extension is ".erl".
+
+If you want to disable keywords highlighting, put in your .vimrc: >
+	:let erlang_keywords = 1
+If you want to disable built-in-functions highlighting, put in your
+.vimrc file
+	:let erlang_functions = 1
+If you want to disable special characters highlighting, put in
+your .vimrc: >
+	:let erlang_characters = 1

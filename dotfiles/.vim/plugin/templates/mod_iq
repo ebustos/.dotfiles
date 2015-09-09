@@ -1,0 +1,25 @@
+-module($basename).
+-behaviour(gen_mod).
+
+-export([start/2, stop/1,
+        process_sm_iq/3
+    ]).
+
+-include("ejabberd.hrl").
+-include("jlib.hrl").
+
+-define(NS_TEST, "http://jabber.org/protocol/test").
+
+start(Host, Opt) ->
+    IQDisc = gen_mod:get_opt(iqdisc, Opt, one_queue),
+    gen_iq_handler:add_iq_handler(ejabberd_sm, Host, ?NS_TEST, ?MODULE, process_sm_iq, IQDisc),
+
+stop(Host) ->
+    gen_iq_handler:remove_iq_handler(ejabberd_sm, Host, ?NS_TEST),
+
+process_sm_iq(_From, _To, #iq{type = get, xmlns = ?NS_TEST} = IQ) ->
+    IQ#iq{type = result, sub_el = [{xmlelement, "value", [], [{xmlcdata, "Hello World of Testing."}]}]};
+process_sm_iq(_From, _To, #iq{type = set} = IQ) ->
+    IQ#iq{type = result, sub_el = []};
+process_sm_iq(_From, _To, #iq{sub_el = SubEl} = IQ) ->
+    IQ#iq{type = error, sub_el = [SubEl, ?ERR_FEATURE_NOT_IMPLEMENTED]}.

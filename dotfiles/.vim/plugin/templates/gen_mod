@@ -1,0 +1,48 @@
+%%%-------------------------------------------------------------------
+%%% @author $author
+%%% @copyright (C) $year, $company
+%%% @doc
+%%%
+%%% @end
+%%% Created : $fulldate
+%%%-------------------------------------------------------------------
+-module($basename).
+-behaviour(gen_mod).
+
+-export([start/2, stop/1]).
+
+-export([ 
+        process_sm_iq/3,
+        process_local_iq/3
+    ]).
+
+-include("ejabberd.hrl").
+-include("jlib.hrl").
+
+-define(NS_TEST, "http://jabber.org/protocol/test").
+
+start(Host, Opts) ->
+    % IQDisc = gen_mod:get_opt(iqdisc, Opts, one_queue),
+    IQDisc = gen_mod:get_opt(iqdisc, Opts, fun gen_iq_handler:check_type/1, one_queue),
+    gen_iq_handler:add_iq_handler(ejabberd_local, Host, ?NS_TEST,
+                ?MODULE, process_local_iq, IQDisc),
+    gen_iq_handler:add_iq_handler(ejabberd_sm, Host, ?NS_TEST,
+                ?MODULE, process_sm_iq, IQDisc),
+    ejabberd_hooks:add(disco_sm_features, Host, ?MODULE, get_sm_features, 50).
+
+stop(Host) ->
+    gen_iq_handler:remove_iq_handler(ejabberd_sm, Host, ?NS_TEST),
+    ejabberd_hooks:delete(disco_sm_features, Host, ?MODULE, get_sm_features, 50).
+
+%% IQ sent to server
+process_local_iq(From, To, #iq{type = get, xmlns = ?NS_TEST} = IQ) ->
+    process_sm_iq(From, To, IQ).
+
+%% IQ sent to user's JID
+process_sm_iq(_From, _To, #iq{type = get, xmlns = ?NS_TEST} = IQ) ->
+    Response = [{xmlcdata, "Hello World of Testing."}],
+    IQ#iq{type = result, sub_el = [{xmlelement, "value", [], Response}]};
+process_sm_iq(_From, _To, #iq{type = set} = IQ) ->
+    IQ#iq{type = result, sub_el = []};
+process_sm_iq(_From, _To, #iq{sub_el = SubEl} = IQ) ->
+    IQ#iq{type = error, sub_el = [SubEl, ?ERR_FEATURE_NOT_IMPLEMENTED]}.
