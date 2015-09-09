@@ -15,8 +15,20 @@ pcm.dmixer  {
     slave {
         pcm "hw:1,0"
         period_time 0
-        period_size 1024
-        buffer_size 4096
+
+        # mplayer2 chooses 1024
+        # period_size 512 with buffer_size 16384 stops crackling in xmame
+        # 320 breaks flash - https://bbs.archlinux.org/viewtopic.php?id=129458
+        #period_size 512
+        period_size 2048
+        #period_size 512
+
+        # 4096 might make sound crackle
+        # mplayer2 chooses 8192. Half-Life 2 chooses 16384.
+        # If too large, use CONFIG_SND_HDA_PREALLOC_SIZE=2048
+        # echo 32768 | sudo tee /proc/asound/card0/pcm7p/sub0/prealloc
+        # echo 32768 | sudo tee /proc/asound/card1/pcm0p/sub0/prealloc
+        buffer_size 16384
         rate 44100
     }
     bindings {
