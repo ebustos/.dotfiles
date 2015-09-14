@@ -55,7 +55,7 @@ pcm.dsnooper  {
 
 pcm.dsp0 {
     type plug
-   slave.pcm "dmixer"
+    slave.pcm "asymed"
 }
 
 ctl.dmixer {
