@@ -58,7 +58,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 #export AWT_TOOLKIT=MToolkit
 export PYTHONSTARTUP=$HOME/.pythonrc
 #sudo nvidia-settings -a InitialPixmapPlacement=0
-export JAVA6_HOME=/usr/lib/jvm/java-6-openjdk-amd64export JAVA7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA6_HOME=/usr/lib/jvm/java-6-openjdk-amd64
 export JAVA7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export STUDIO_JDK="$JAVA8_HOME"
