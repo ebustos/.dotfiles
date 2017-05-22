@@ -32,7 +32,6 @@ alias who="lsof -P -i -n"
 alias k="killall"
 alias f="find | grep"
 alias h="history | grep"
-alias apt="sudo aptitude"
 
 alias irb=irb1.9.1
 alias ruby=ruby1.9.1
