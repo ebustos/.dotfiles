@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/emilio/work/elance/transport-layer/ds/service/target/site/jacoco/com.elanceodesk.transport.event.log'
-let g:netrw_dirhist_2='/home/emilio/docs/agenda'
-let g:netrw_dirhist_3='/home/emilio/docs/agenda/gastos'
-let g:netrw_dirhist_4='/home/emilio/work/elance/stress/JMeter-WebSocketSampler/src/main/java/JMeter/plugins/functional/controler'
-let g:netrw_dirhist_5='/home/emilio/work/alessandro/client/config'
-let g:netrw_dirhist_6='/home/emilio/.mcabber'
-let g:netrw_dirhist_7='/home/emilio/work/elance/transport-layer/ds/service/src/main/java'
