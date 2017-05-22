@@ -211,14 +211,14 @@ let g:exSL_SymbolSelectCmd = 'TS'
 " --------------------
 " exEnvironmentSetting
 " --------------------
-function! g:exES_UpdateEnvironment()
- if exists( 'g:exES_PWD' )
- silent exec 'cd ' . g:exES_PWD
- endif
- if exists( 'g:exES_Tag' )
- let &tags = &tags . ',' . g:exES_Tag
- endif
-endfunction
+"function! g:exES_UpdateEnvironment()
+" if exists( 'g:exES_PWD' )
+" silent exec 'cd ' . g:exES_PWD
+" endif
+" if exists( 'g:exES_Tag' )
+" let &tags = &tags . ',' . g:exES_Tag
+" endif
+"endfunction
 
 " --------------------
 " TagList
