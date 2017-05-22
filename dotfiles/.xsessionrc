@@ -6,6 +6,7 @@ xset dpms 0 300 600
 xhost totis coca maria lola
 # setxkbmap -option 'ctrl:nocaps'
 
+devmon &
 #stardict &
 #urxvtd -q -f -o 
 # . $HOME/.fehbg &
