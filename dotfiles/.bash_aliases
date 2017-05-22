@@ -26,6 +26,7 @@ alias p='print'
 
 alias ..="cd .."
 alias mplayer="mplayer -sub-fuzziness 1 -softvol -softvol-max 900"
+alias mpv="mpv -sub-auto=fuzzy -softvol-max 900"
 alias ver_dvd="mplayer -vo xv dvdnav://"
 alias ip="curl ip.appspot.com"
 alias who="lsof -P -i -n"
