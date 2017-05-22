@@ -20,10 +20,10 @@ xterm-*|rxvt*)
 #linux)
 #    fbterm -- screen -q
 #    ;;
-#*)
-#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-#    export TERM=xterm-256color
-#    ;;
+*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    export TERM=xterm-256color
+    ;;
 *)
     ;;
 esac
