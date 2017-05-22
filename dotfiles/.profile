@@ -42,9 +42,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-PATH="$HOME/work/android-studio/bin:$PATH"
-export PATH
-
 export HISTCONTROL=ignoreboth
 export CRAFTY_BOOK_PATH=/usr/share/crafty
 export CRAFTY_TB_PATH=/usr/share/crafty/endgame
@@ -62,3 +59,7 @@ export JAVA6_HOME=/usr/lib/jvm/java-6-openjdk-amd64
 export JAVA7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export STUDIO_JDK="$JAVA8_HOME"
+export ANDROID_HOME="$HOME/tools/android/sdk"
+
+PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/tools/android-studio/bin:$PATH"
+export PATH
