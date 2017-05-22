@@ -46,6 +46,7 @@ use_spacer none
 
 # ${scroll 22 3 $mpd_title} \
 TEXT
+${time ^fg(yellow)%H:%M} \
 ^fg(white)$uptime_short\
 ^fg(\#99ccFF) CPU:^fg(\#FFFFFF)$cpu%\
 ^fg(yellow) RAM:^fg(\#FFFFFF)$memperc%\
