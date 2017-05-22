@@ -1,0 +1,345 @@
+# Conky sample configuration
+#
+# the list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+
+# set to yes if you want Conky to be forked in the background
+background no
+
+# Print everything to stdout?
+out_to_console yes
+
+# Print everything to X?
+out_to_x no
+
+short_units yes
+
+# MPD host/port
+# mpd_host localhost
+# mpd_port 6600
+# mpd_password tinker_bell
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+# ${scroll 22 3 $mpd_title} \
+TEXT
+${time %a %d-%b ^fg(yellow)%H:%M}\
+# ^fg(green)^i(.local/share/icons/dzen/vol-hi.xbm) ${mixer (Master)}
+#^fg(white)$uptime_short\
+#^fg(\#99ccFF) CPU:^fg(\#FFFFFF)$cpu%\
+#^fg(yellow) RAM:^fg(\#FFFFFF)$memperc%\
+#^fg(\#99ccFF) SWP:^fg(\#FFFFFF)$swapperc%\
+#${if_up wlan0} ^fg(orange)^i(.local/share/icons/dzen/arr_down.xbm)^fg(\#FFFFFF)${downspeedf wlan0}kb/s^fg(green)^i(.local/share/icons/dzen/arr_up.xbm)^fg(\#FFFFFF)${upspeedf wlan0}kb/s$endif\
+#${if_up wlan0}^fg(\#99ccFF) Wifi:^fg(\#FFFFFF)${wireless_link_qual_perc wlan0}%$endif\
+#^fg(red2) ^i(.local/share/icons/dzen/home.xbm)^fg(\#FFFFFF)${fs_free_perc /home}% (${fs_free /home})\
+#^fg(\#99ccFF) T: ^fg(\#FFFFFF)${acpitemp}\
+#^fg(\#99ccFF) B: ^fg(\#FFFFFF)${battery_short} \
+# ${time %H:%M}\
+#${time %a %d-%b ^fg(\#FFFF00)%H:%M}\
+# $mixer
+
+#${if_mounted /media/pen}^fg(\#99ccFF) PEN: ^fg(\#FFFFFF)${fs_free /media/pen} $endif\
+# ${scroll 9 2 $moc_song}\
+#^fg(#FFFFFF)$uptime_short ^fg(#99ccFF)CPU:^fg(#FFFFFF)$cpu% ^fg(#99ccFF)RAM:^fg(#FFFFFF)$memperc% ^fg(#99ccFF)SWP:^fg(#FFFFFF)$swapperc% ${if_up eth1} ^fg(#99ccFF)D:^fg(#FFFFFF)${downspeedf eth1}kb/s ^fg(#99ccFF)U:^fg(#FFFFFF)${upspeedf eth1}kb/s $endif ${if_up wlan0} ^fg(#99ccFF)Wifi:^fg(#FFFFFF)${wireless_link_qual wlan0}% $endif ^fg(#99ccFF)Home:^fg(#FFFFFF)${fs_free_perc /home}% (${fs_free /home})${if_mounted /media/pen} ^fg(#99ccFF)PEN: ^fg(#FFFFFF)${fs_free /media/pen} $endif ${time %a %d-%b %H:%M}
+
+#
+#     wireless_essid (net)
+#              Wireless access point ESSID (Linux only)
+#
+#       wireless_link_bar (height),(width) (net)
+#              Wireless link quality bar (Linux only)
+#
+#       wireless_link_qual (net)
+#              Wireless link quality (Linux only)
+#
+#       wireless_link_qual_max (net)
+#              Wireless link quality maximum value (Linux only)
+#
+#       wireless_link_qual_perc (net)
+#              Wireless link quality in percents (Linux only)
+#
+#       wireless_mode (net)
+#
+#       voltage_mv (n)
+#              Returns CPU #n's voltage in mV. CPUs are counted from 1. If omitted, the parameter defaults to 1.
+#
+#       voltage_v (n)
+#              Returns CPU #n's voltage in V. CPUs are counted from 1. If omitted, the parameter defaults to 1.
+#       totaldown (net)
+#              Total download, overflows at 4 GB on Linux with 32-bit arch and there doesn't seem to be a way to know how many times it has
+#              already done that before conky has started.
+#
+#       totalup (net)
+#              Total upload, this one too, may overflow
+#
+#       top type num
+#              This  takes arguments in the form:top (name) (number) Basically, processes are ranked from highest to lowest in terms of cpu
+#              usage, which is what (num) represents.  The  types  are:  "name",  "pid",  "cpu",  "mem",  "mem_res",  "mem_vsize",  "time",
+#              "io_perc", "io_read" and "io_write". There can be a max of 10 processes listed.
+#
+#       top_io type num
+#              Same as top, except sorted by the amount of I/O the process has done during the update interval
+#
+#       top_mem type num
+#              Same as top, except sorted by mem usage instead of cpu
+#
+#       top_time type num
+#              Same as top, except sorted by total CPU time instead of current CPU usage
+#
+#       mpd_album
+#              Album in current MPD song
+#
+#       mpd_artist
+#              Artist in current MPD song must be enabled at compile
+#
+#       mpd_bar (height),(width)
+#              Bar of mpd's progress
+#
+#       mpd_bitrate
+#              Bitrate of current song
+#
+#       mpd_elapsed
+#              Song's elapsed time
+#
+#       mpd_file
+#              Prints the file name of the current MPD song
+#
+#       mpd_length
+#              Song's length
+#
+#       mpd_name
+#              Prints the MPD name field
+#
+#       mpd_percent
+#              Percent of song's progress
+#
+#       mpd_random
+#              Random status (On/Off)
+#
+#       mpd_repeat
+#              Repeat status (On/Off)
+#
+#       mpd_smart (max length)
+#              Prints the song name in either the form "artist - title" or file name, depending on whats available
+#
+#       mpd_status
+#              Playing, stopped, et cetera.
+#
+#       mpd_title (max length)
+#              Title of current MPD song
+#
+#       mpd_track
+#              Prints the MPD track field
+#
+#       mpd_vol
+#              MPD's volume
+#
+#       nameserver (index)
+#              Print a nameserver from /etc/resolv.conf. Index starts at and defaults to 0.
+#
+#   Here’s a list of the new variables you can use in your conkyrc file to add moc support.
+#
+#     * $moc_state: Current state of MOC; playing, stopped etc.
+#     * $moc_file: File name of the current MOC song.
+#     * $moc_title: Title of the current MOC song.
+#     * $moc_artist: Artist of the current MOC song.
+#     * $moc_song: The current song name being played in MOC.
+#     * $moc_album: Album of the current MOC song.
+#     * $moc_totaltime: Total length of the current MOC song.
+#     * $moc_timeleft: Time left in the current MOC song
+#     * $moc_curtime: Current time of the current MOC song.
+#     * $moc_bitrate: Bitrate in the current MOC song.
+#     * $moc_rate: Rate of the current MOC song.
+#
+#       moc_album
+#              Album of the current MOC song
+#
+#       moc_artist
+#              Artist of the current MOC song
+#
+#       moc_bitrate
+#              Bitrate in the current MOC song
+#
+#       moc_curtime
+#              Current time of the current MOC song
+#
+#       moc_file
+#              File name of the current MOC song
+#
+#       moc_rate
+#              Rate of the current MOC song
+#
+#       moc_song
+#              The current song name being played in MOC.
+#
+#       moc_state
+#              Current state of MOC; playing, stopped etc.
+#
+#       moc_timeleft
+#              Time left in the current MOC song
+#
+#       moc_title
+#              Title of the current MOC song
+#
+#       moc_totaltime
+#              Total length of the current MOC song
+#
+#       memeasyfree
+#              Amount of free memory including the memory that is very easily freed (buffers/cache)
+#
+#       memfree
+#              Amount of free memory
+#
+#       imap_messages (args)
+#              Displays the number of messages in your global IMAP inbox by default. You can define individual IMAP inboxes  separately  by
+#              passing  arguments  to  this  object.  Arguments are: "host user pass [-i interval (in seconds)] [-f 'folder'] [-p port] [-e
+#              'command'] [-r retries]". Default port is 143, default folder is 'INBOX', default interval is 5 minutes, and default  number
+#              of  retries before giving up is 5. If the password is supplied as '*', you will be prompted to enter the password when Conky
+#              starts.
+#
+#       imap_unseen (args)
+#              Displays the number of unseen messages in your global IMAP inbox by default. You can define individual  IMAP  inboxes  sepa‐
+#              rately  by  passing  arguments  to  this object. Arguments are: "host user pass [-i interval (in seconds)] [-f 'folder'] [-p
+#              port] [-e 'command'] [-r retries]".  Default port is 143, default folder is 'INBOX', default interval is 5 minutes, and  de‐
+#              fault  number  of retries before giving up is 5. If the password is supplied as '*', you will be prompted to enter the pass‐
+#              word when Conky starts.
+#
+#       include path
+#              Loads the configfile at path, places the configsettings behind the configsettings in the orginal config and places the  vars
+#              where the includevar stood.
+#
+#       if_mounted (mountpoint)
+#              if MOUNTPOINT is mounted, display everything between $if_mounted and the matching $endif
+#
+#       if_mpd_playing
+#              if mpd is playing or paused, display everything between $if_mpd_playing and the matching $endif
+#
+#       if_running (process)
+#              if PROCESS is running, display everything $if_running and the matching $endif. This uses the ``pidof'' command,  so  the  -x
+#              switch is also supported.
+#
+#
+#       if_empty (var)
+#              if conky variable VAR is empty, display everything between $if_empty and the matching $endif
+#
+#       if_existing file (string)
+#              if FILE exists, display everything between if_existing and the matching $endif. The optional  second  paramater  checks  for
+#              FILE containing the specified string and prints everything between $if_existing and the matching $endif.
+#
+#       hddtemp (dev)
+#              Displays  temperature  of a selected hard disk drive as reported by the hddtemp daemon. Use hddtemp_host and hddtemp_port to
+#              specify a host and port for all hddtemp objects. If no dev parameter is given, the first disk returned by the hddtemp daemon
+#              is used.
+#
+#       hwmon (dev) type n (factor offset)
+#              Hwmon sensor from sysfs (Linux 2.6). Parameter dev may be omitted if you have only one hwmon device.  Parameter type is  ei‐
+#              ther  'in' or 'vol' meaning voltage; 'fan' meaning fan; 'temp' meaning temperature. Parameter n is number of the sensor. See
+#              /sys/class/hwmon/ on your local computer. The optional arguments 'factor' and 'offset' allow precalculation of the  raw  in‐
+#              put,  which is being modified as follows: 'input = input * factor + offset'. Note that they have to be given as decimal val‐
+#              ues (i.e. contain at least one decimal place).
+#
+#       freq (n)
+#              Returns CPU #n's frequency in MHz. CPUs are counted from 1. If omitted, the parameter defaults to 1.
+#
+#       freq_g (n)
+#              Returns CPU #n's frequency in GHz. CPUs are counted from 1. If omitted, the parameter defaults to 1.
+#
+#       fs_free (fs)
+#              Free space on a file system available for users.
+#
+#       fs_free_perc (fs)
+#              Free percentage of space on a file system available for users.
+#
+#       fs_size (fs)
+#              File system size.
+#
+#       fs_type (fs)
+#              File system type.
+#
+#       fs_used (fs)
+#              File system used space.
+#
+#       fs_used_perc (fs)
+#              Percent of file system used space.
+#
+#       eval string
+#              Evaluates  given string according to the rules of TEXT interpretation, i.e. parsing any contained text object specifications
+#              into their output, any occuring '$$' into a single '$' and so on. The output is then being parsed again.
+#
+#       disk_protect device
+#              Disk protection status, if supported (needs kernel-patch). Prints either "frozen" or "free " (note the padding).
+#
+#       diskio (device)
+#              Displays current disk IO. Device is optional, and takes the form of sda for /dev/sda. Individual partitions are allowed.
+#
+#       diskio_read (device)
+#              Displays current disk IO for reads. Device as in diskio.
+#
+#       diskio_write (device)
+#              Displays current disk IO for writes. Device as in diskio.
+#
+#       curl url (interval_in_minutes)
+#              Download data from URI using Curl at the specified interval. The interval may be a floating point value greater than 0, oth‐
+#              erwise defaults to 15 minutes. Most useful when used in conjunction with Lua and the Lua API. This object is  threaded,  and
+#              once a thread is created it can't be explicitly destroyed.  One thread will run for each URI specified. You can use any pro‐
+#              tocol that Curl supports.
+#
+#       cpu (cpuN)
+#              CPU  usage in percents. For SMP machines, the CPU number can be provided as an argument. ${cpu cpu0} is the total usage, and
+#              ${cpu cpuX} (X >= 1) are individual CPUs.
+#
+#       battery_percent (num)
+#              Battery percentage remaining for ACPI battery.  ACPI battery number can be given as argument (default is BAT0).
+#
+#       battery_short (num)
+#              Battery status and remaining percentage capacity of ACPI or APM battery. ACPI battery number can be given as  argument  (de‐
+#              fault  is BAT0). This mode display a short status, which means that C is displayed instead of charging, D for discharging, F
+#              for full, N for not present, E for empty and U for unknown.
+#
+#       battery_time (num)
+#              Battery charge/discharge time remaining of ACPI battery. ACPI battery number can be given as argument (default is BAT0).
+#
+#       acpifan
+#              ACPI fan state
+#
+#       acpitemp
+#              ACPI temperature in C.
+#
+#       addr (interface)
+#              IP address for an interface, or "No Address" if no address is assigned.
+#
+#       addrs (interface)
+#              IP addresses for an interface (if one - works like addr). Linux only.
+#
+#
+#       scroll length (step) text
+#              Scroll  'text'  by 'step' characters showing 'length' number of characters at the same time. The text may also contain vari‐
+#              ables. 'step' is optional and defaults to 1 if not set. If a var creates output on multiple lines then the lines are  placed
+#              behind  each other separated with a '|'-sign. If you change the textcolor inside $scroll it will automatically have it's old
+#              value back at the end of $scroll. The end and the start of text will be separated by 'length' number of spaces.
+
+# ^fg(#FFFFFF)$uptime_short ^fg(#99ccFF)^i(/home/emilio/.local/share/icons/dzen/cpu.xbm)^fg(#FFFFFF)$cpu%^fg(yellow)^i(/home/emilio/.local/share/icons/dzen/mem.xbm)^fg(#FFFFFF)$memperc% ^fg(#99ccFF)SWP:^fg(#FFFFFF)$swapperc% ${if_up eth2}^fg(orange)^i(/home/emilio/.local/share/icons/dzen/arr_down.xbm)^fg(#FFFFFF)${downspeedf eth2}kb/s^fg(green)^i(/home/emilio/.local/share/icons/dzen/arr_up.xbm)^fg(#FFFFFF)${upspeedf eth2}kb/s$endif ${if_up wlan0}^fg(orange)^i(/home/emilio/.local/share/icons/dzen/arr_down.xbm)^fg(#FFFFFF)${downspeedf wlan0}kb/s^fg(green)^i(/home/emilio/.local/share/icons/dzen/arr_up.xbm)^fg(#FFFFFF)${upspeedf wlan0}kb/s$endif ${if_up wlan0}^fg(#99ccFF)Wifi:^fg(#FFFFFF)${wireless_link_qual wlan0}%$endif ^fg(red2)^i(/home/emilio/.local/share/icons/dzen/home.xbm)^fg(#FFFFFF)${fs_free_perc /home}% (${fs_free /home})${if_mounted /media/pen} ^fg(#99ccFF)PEN: ^fg(#FFFFFF)${fs_free /media/pen} $endif ${time %a %d-%b ^fg(yellow2)%H:%M}^fg(green)^i(/home/emilio/.local/share/icons/dzen/vol-hi.xbm)$mixer
+
