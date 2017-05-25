@@ -180,7 +180,7 @@ myLayout = tabbed shrinkText (theme wfarrTheme) ||| hintedTile Wide ||| Grid
 --        magnify = magnifiercz 1.2
  
 myStartupHook = do
-    spawn "trayer --edge bottom --align right --widthtype request --height 18"
+    spawn "trayer --edge bottom --align left --widthtype request --height 18"
 --     spawn "lxpanel"
 
 myLogHookWithPP pp = do

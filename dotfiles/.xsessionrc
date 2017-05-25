@@ -14,4 +14,4 @@ devmon &
 # sakura -t Mutt -x "mutt" &
 
 myFont="-xos4-terminus-medium-r-normal-*-14-*-*-*-c-*-iso10646-1"
-conky -c ~/.config/conky/bottom | dzen2 -x '0' -w '1368' -y '750' -h '18' -ta 'r' -fg '#AAAAEE' -bg '#000000' -p -fn "$myFont" &
+conky -c ~/.config/conky/bottom | dzen2 -x '0' -w '1370' -y '750' -h '18' -ta 'r' -fg '#AAAAEE' -bg '#000000' -p -fn "$myFont" &
