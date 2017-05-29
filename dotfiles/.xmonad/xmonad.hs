@@ -195,11 +195,13 @@ myManageHook = composeAll . concat $
 --    , [className =? im  --> doF (W.shift "im") | im <- insMessenger]
 --     , [className =? x --> doF (W.shift "9") | x <- pads]
     , [role =? bw  --> doShift "www" | bw <- ["browser"]]
+    , [className =? f   --> doFloat | f <- myFloats]
     , [className =? w   --> doF (W.shift "2") | w <- workApps]
     ]
     where
     role = stringProperty "WM_WINDOW_ROLE"
     myComms = ["Im", "mutt", "Mutt"]
+    myFloats = [ "Xmessage", "MPlayer", "mplayer2", "mpv", "Nitrogen", "Galculator", "Sonata", "Gcalctool", "xpad"]
     myIgnores = ["XClock"]
     mediaPlayers = ["Quodlibet", "Audacious"]
     insMessenger = ["Pidgin", "emesene"]
