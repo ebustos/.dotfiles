@@ -72,10 +72,9 @@ main = do
 --        mod-shift-{w,e,r} Move client to screen 1, 2, or 3
 
         -- Application launchers
-         ("M-f", runOrRaise "chromium" (className =? "Chromium"))
---          ("M-f", runOrRaise "icecat" (className =? "GNU IceCat"))
---         ("M-f", runOrRaise "firefox" (className =? "Iceweasel"))
---         ("M-f", runOrRaise "midori" (className =? "Midori"))
+         ("M-f", runOrRaise "chromium" (className =? "Chromium-browser"))
+--         ("M-f", runOrRaise "firefox" (className =? "Navigator"))
+--         , ("M-o", runOrRaiseNext "opera" (className =? "Opera"))
         , ("M-u", runOrRaiseNext "uzbl-browser" (className =? "Uzbl-core"))
 --         , ("M-y", spawnHere "uzbl-browser")
         , ("M-S-`", runOrRaiseNext "xpad -t" (className =? "xpad"))
@@ -86,7 +85,6 @@ main = do
         , ("M-i", raiseMaybe (runInTerm "-T Im" mcabber) (title =? "Im")) -- <||>  (fmap (\t -> (isImApp t)) title)))
         , ("M-m", raiseMaybe (runInTerm "-T Mutt" "mutt") (title =? "Mutt")) -- <||>  (fmap (\t -> (isCliApp t)) title)))
 --         , ("M-m", raiseMaybe (runInTerm "-T Mutt" mutt) (title =? "Mutt")) -- <||>  (fmap (\t -> (isCliApp t)) title)))
---         , ("M-o", runOrRaiseNext "opera" (className =? "Opera"))
         , ("M-<F1>", runOrRaiseNext "galculator" (className =? "Galculator"))
         , ("M-c", runOrRaiseNext myTerminal (className =? myTerminalClass <&&> (fmap (\t -> (not (isCliApp t))) title)))
         , ("M-x", runOrRaiseNext "gvim ~/.xmonad/xmonad.hs" (fmap (\t -> (isXmonadConfig t)) title))
@@ -197,19 +195,18 @@ myManageHook = composeAll . concat $
     , [className =? r   --> doIgnore | r <- myIgnores]
 --    , [className =? mp  --> doF (W.shift "mp") | mp <- mediaPlayers]
 --    , [className =? im  --> doF (W.shift "im") | im <- insMessenger]
---     , [className =? bw  --> doF (W.shift "1:www") | bw <- browsers]
 --     , [className =? x --> doF (W.shift "9") | x <- pads]
-    , [className =? bw  --> doShift "www" | bw <- browsers]
+    , [role =? bw  --> doShift "www" | bw <- ["browser"]]
     , [className =? w   --> doF (W.shift "2") | w <- workApps]
     ]
     where
+    role = stringProperty "WM_WINDOW_ROLE"
     myComms = ["Im", "mutt", "Mutt"]
     myFloats = [ "Xmessage", "MPlayer", "mplayer2", "mpv", "Nitrogen", "Galculator", "Sonata", "Gcalctool", "xpad"]
     myOtherFloats = [ "*Preferences*", "Save As...", "Send file", "Open", "File Transfers"]
     myIgnores = ["XClock"]
     mediaPlayers = ["Quodlibet", "Audacious"]
     insMessenger = ["Pidgin", "emesene"]
-    browsers = ["Gran Paradiso", "Navigator", "Shiretoko", "Firefox", "Epiphany", "Opera", "Arora", "Midori", "Conkeror", "Chromium"]
     pads = ["xpad", "Xpad"]
     workApps = ["Evince", "Mirage", "Gimp", "Inkscape", "Gvim"]
 
