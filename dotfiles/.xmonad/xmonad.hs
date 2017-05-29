@@ -188,9 +188,8 @@ myLogHookWithPP pp = do
 
 -- Window rules
 myManageHook = composeAll . concat $
-    [ [className =? c   --> doFloat | c <- myFloats]
-    , [title =? t       --> doFloat | t <- myOtherFloats]
-    , [title =? t --> doShift "im" | t <- myComms]
+    [
+     [title =? t --> doShift "im" | t <- myComms]
 --     , [title =? t --> doF (W.shift "1") | t <- myComms]
     , [className =? r   --> doIgnore | r <- myIgnores]
 --    , [className =? mp  --> doF (W.shift "mp") | mp <- mediaPlayers]
@@ -202,8 +201,6 @@ myManageHook = composeAll . concat $
     where
     role = stringProperty "WM_WINDOW_ROLE"
     myComms = ["Im", "mutt", "Mutt"]
-    myFloats = [ "Xmessage", "MPlayer", "mplayer2", "mpv", "Nitrogen", "Galculator", "Sonata", "Gcalctool", "xpad"]
-    myOtherFloats = [ "*Preferences*", "Save As...", "Send file", "Open", "File Transfers"]
     myIgnores = ["XClock"]
     mediaPlayers = ["Quodlibet", "Audacious"]
     insMessenger = ["Pidgin", "emesene"]
