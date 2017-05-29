@@ -37,7 +37,7 @@ import qualified XMonad.StackSet as W
 main = do
     din <- spawnPipe myStatusBar
     din2 <- spawnPipe myTopBar
---     din3 <- spawnPipe myBottomBar
+    din3 <- spawnPipe myBottomBar
 --     spawn mcabberDetach
 --     nada <- spawn mcabber
     xmonad $ myUrgencyHook $ defaultConfig
@@ -49,7 +49,6 @@ main = do
 --        , normalBorderColor = "#0f0f0f"
 --        , focusedBorderColor = "#0077cc"
         , terminal = myTerminal
---         , workspaces = (map show [1..9]) ++ ["mail", "im", "www"]
         , workspaces = ["im", "www", "work"] ++ (map show [4..7]) ++ ["music", "TV"]
         --, workspaces = ["1:irc", "2:www", "3:music"] ++ map show [4..9]
         -- , numlockMask = mod2Mask
@@ -231,7 +230,7 @@ showSong  = spawn ("(mpc | head -n1; sleep 1.5) | dzen2 -y '20' -h '40' -fn '" +
 -- Statusbars
 myStatusBar = "dzen2 -x '0' -w '500' -y '0' -h '18' -ta 'l' -fg '#fff0ff' -bg '#0f0f0f' -fn '" ++ myFont ++ "'"
 myTopBar = "conky | dzen2 -x '360' -w '1056' -y '0' -h '18' -ta 'r' -fg '#AAAAEE' -bg '#0f0f0f' -fn '" ++ myFont ++ "'"
-myBottomBar = "dzen2 -x '0' -w '1370' -y '750' -h '18' -ta 'r' -fg '#AAAAEE' -bg '#0f0f0f' -p -fn '" ++ myFont ++ "'"
+myBottomBar = "conky -c ~/.config/conky/bottom |dzen2 -x '0' -w '1370' -y '750' -h '18' -ta 'r' -fg '#AAAAEE' -bg '#0f0f0f' -p -fn '" ++ myFont ++ "'"
  
 -- Urgency hint options:
 -- myUrgencyHook = withUrgencyHook dzenUrgencyHook
